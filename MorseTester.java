@@ -1,6 +1,7 @@
 public class MorseTester {
     public static void main(String[] args) {
         MorseTree morseTree = new MorseTree();
+        morseTree = morseTree.morseify(morseTree);
         
         System.out.println(morseTree.preOrder());
 

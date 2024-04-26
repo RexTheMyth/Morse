@@ -3,33 +3,36 @@ public class MorseTree{
 
     public MorseTree(){
         this.root = new TreeNode<Character>(' ');
-        root.insertLeft(new TreeNode<Character>('e'));
-        root.getLeft().insertLeft(new TreeNode<Character>('i'));
-        root.getLeft().getLeft().insertLeft(new TreeNode<Character>('s'));
-        root.getLeft().getLeft().getLeft().insertLeft(new TreeNode<Character>('h'));
-        root.insertRight(new TreeNode<Character>('t'));
-        root.getLeft().insertRight(new TreeNode<Character>('a'));
-        root.getRight().insertLeft(new TreeNode<Character>('n'));
-        root.getRight().insertRight(new TreeNode<Character>('m'));
-        root.getLeft().getLeft().insertRight(new TreeNode<Character>('u'));
-        root.getLeft().getRight().insertLeft(new TreeNode<Character>('r'));
-        root.getLeft().getRight().insertRight(new TreeNode<Character>('w'));
-        root.getRight().getLeft().insertLeft(new TreeNode<Character>('d'));
-        root.getRight().getLeft().insertRight(new TreeNode<Character>('k'));
-        root.getRight().getRight().insertLeft(new TreeNode<Character>('g'));
-        root.getRight().getRight().insertRight(new TreeNode<Character>('o'));
-        root.getLeft().getLeft().getLeft().insertRight(new TreeNode<Character>('v'));
-        root.getLeft().getLeft().getRight().insertLeft(new TreeNode<Character>('f'));
-        root.getLeft().getRight().getLeft().insertLeft(new TreeNode<Character>('l'));
-        root.getLeft().getRight().getRight().insertLeft(new TreeNode<Character>('p'));
-        root.getLeft().getRight().getRight().insertRight(new TreeNode<Character>('j'));
-        root.getRight().getLeft().getLeft().insertLeft(new TreeNode<Character>('b'));
-        root.getRight().getLeft().getLeft().insertRight(new TreeNode<Character>('x'));
-        root.getRight().getLeft().getRight().insertLeft(new TreeNode<Character>('c'));
-        root.getRight().getLeft().getRight().insertRight(new TreeNode<Character>('y'));
-        root.getRight().getRight().getLeft().insertLeft(new TreeNode<Character>('z'));
-        root.getRight().getRight().getLeft().insertRight(new TreeNode<Character>('q'));
-        //finish the tree
+    }
+
+    public MorseTree morseify(MorseTree tree){
+        tree.root.insertLeft(new TreeNode<Character>('e'));
+        tree.root.getLeft().insertLeft(new TreeNode<Character>('i'));
+        tree.root.getLeft().getLeft().insertLeft(new TreeNode<Character>('s'));
+        tree.root.getLeft().getLeft().getLeft().insertLeft(new TreeNode<Character>('h'));
+        tree.root.insertRight(new TreeNode<Character>('t'));
+        tree.root.getLeft().insertRight(new TreeNode<Character>('a'));
+        tree.root.getRight().insertLeft(new TreeNode<Character>('n'));
+        tree.root.getRight().insertRight(new TreeNode<Character>('m'));
+        tree.root.getLeft().getLeft().insertRight(new TreeNode<Character>('u'));
+        tree.root.getLeft().getRight().insertLeft(new TreeNode<Character>('r'));
+        tree.root.getLeft().getRight().insertRight(new TreeNode<Character>('w'));
+        tree.root.getRight().getLeft().insertLeft(new TreeNode<Character>('d'));
+        tree.root.getRight().getLeft().insertRight(new TreeNode<Character>('k'));
+        tree.root.getRight().getRight().insertLeft(new TreeNode<Character>('g'));
+        tree.root.getRight().getRight().insertRight(new TreeNode<Character>('o'));
+        tree.root.getLeft().getLeft().getLeft().insertRight(new TreeNode<Character>('v'));
+        tree.root.getLeft().getLeft().getRight().insertLeft(new TreeNode<Character>('f'));
+        tree.root.getLeft().getRight().getLeft().insertLeft(new TreeNode<Character>('l'));
+        tree.root.getLeft().getRight().getRight().insertLeft(new TreeNode<Character>('p'));
+        tree.root.getLeft().getRight().getRight().insertRight(new TreeNode<Character>('j'));
+        tree.root.getRight().getLeft().getLeft().insertLeft(new TreeNode<Character>('b'));
+        tree.root.getRight().getLeft().getLeft().insertRight(new TreeNode<Character>('x'));
+        tree.root.getRight().getLeft().getRight().insertLeft(new TreeNode<Character>('c'));
+        tree.root.getRight().getLeft().getRight().insertRight(new TreeNode<Character>('y'));
+        tree.root.getRight().getRight().getLeft().insertLeft(new TreeNode<Character>('z'));
+        tree.root.getRight().getRight().getLeft().insertRight(new TreeNode<Character>('q'));
+        return tree;
     }
 
     public String lookFor(char letter, TreeNode<Character> node, String morseString){
@@ -40,16 +43,6 @@ public class MorseTree{
         String leftOut = lookFor(letter, node.getLeft(), morseString + "o");
         if(leftOut == null){
             return lookFor(letter, node.getRight(), morseString + "-");
-
-            // incase of bug, look here
-            /*String rightOut = lookFor(letter, node.getRight(), morseString + "-");
-            if (rightOut == null){
-                return null;
-            }
-            else{
-                return rightOut;
-            }*/
-
         }
         else{
             return leftOut;
